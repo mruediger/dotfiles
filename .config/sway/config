@@ -62,7 +62,7 @@ bindsym $mod+r exec $menu
 bindsym $mod+p exec $pass
 
 # screenshot
-bindsym $mod+Shift+s exec "slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')"
+bindsym $mod+$alt+s exec "slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')"
 
 # multimedia keys
 bindsym XF86AudioLowerVolume  exec pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -126,14 +126,16 @@ bindsym $mod+Shift+g move workspace to output up
 bindsym $mod+Shift+r move workspace to output down
 
 # layout stuff
-bindsym $mod+Shift+space floating toggle
-bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+Shift+t layout toggle split
 bindsym $mod+f fullscreen
 
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
+
+# scratchpad
+bindsym $mod+Shift+s move scratchpad
+bindsym $mod+s scratchpad show
 
 # resize mode
 mode "resize" {
