@@ -1,0 +1,10 @@
+[user]
+	name = Mathias Rüdiger
+	email = ruediger@blueboot.org
+[push]
+	default = simple
+[core]
+	editor = emacs -nw
+[alias]
+    l  = log --pretty=oneline --decorate --abbrev-commit --max-count=15
+    ll = log --graph --pretty=format:'%Cred%h%Creset %an: %s %Creset%Cgreen(%cr)%Creset' --abbrev-commit --date=relative
