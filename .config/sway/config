@@ -1,0 +1,206 @@
+#
+# sway config by Mathias Rüdiger
+#
+
+### Variables
+set $mod	Mod4
+set $alt	Mod1
+set $up 	v
+set $down 	i
+set $left	u
+set $right 	a
+
+# default programs
+set $term	termite
+set $menu 	termite --name launcher -e "sh -c 'dmenu_path | fzf --color=bw | xargs swaymsg exec'"
+set $pass   termite --name launcher -e "sh -c 'pass_path | fzf --color=bw | xargs swaymsg pass show -c'"
+
+### Output configuration
+output HDMI-A-1 pos 0 0
+output eDP-1 scale 1.5
+output eDP-1 pos 850 1440
+output * bg ~/.config/sway/the-whale.png stretch
+
+### Input configuration
+input * {
+	  xkb_layout  de
+	  xkb_variant neo
+}
+
+### Decorations
+#						border	 background	 text     indicator  child border
+client.focused         	#636667	 #636667	 #e7e7e7  #26A65B    #abacac
+client.focused_inactive	#636667	 #636667 	 #abacac  #26A65B    #abacac
+client.unfocused       	#636667	 #abacac     #636667  #26A65B    #abacac
+client.urgent			#636667	 #abacac	 #f53c3c  #26A65B    #abacac
+
+default_border			pixel 1
+default_floating_border	normal 1
+gaps 					inner 4
+smart_gaps				on
+smart_borders			on
+
+floating_modifier $alt normal
+
+### Keybindings
+
+# movement keys
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
+bindsym $mod+$right focus right
+# or use $mod+[up|down|left|right]
+bindsym $mod+Left   focus left
+bindsym $mod+Down   focus down
+bindsym $mod+Up     focus up
+bindsym $mod+Right  kfocus right
+
+# programs
+bindsym $mod+Return exec $term
+bindsym $mod+d exec $menu
+bindsym $mod+r exec $menu
+bindsym $mod+p exec $pass
+
+# screenshot
+bindsym $mod+Shift+s exec "slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')"
+
+# multimedia keys
+bindsym XF86AudioLowerVolume  exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume  exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioMicMute 	  exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioMute		  exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioNext 		  nop
+bindsym XF86AudioPause 		  nop
+bindsym XF86AudioPlay 		  nop
+bindsym XF86AudioPrev 		  nop
+bindsym XF86AudioStop 		  nop
+bindsym XF86Back 			  nop
+bindsym XF86Battery 		  nop
+bindsym XF86Forward 		  nop
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+bindsym XF86MonBrightnessUp   exec xbacklight -inc 20
+bindsym XF86TouchpadToggle 	  nop
+bindsym XF86WLAN 			  nop
+
+bindsym $mod+l exec --no-startup-id swaylock -i /home/bag/src/dotfiles/templates/w95lock.png
+
+# kill focused window
+bindsym $alt+F4 kill
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+# ditto, with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# multi monitor
+bindsym $mod+Shift+g move workspace to output up
+bindsym $mod+Shift+r move workspace to output down
+
+# layout stuff
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+Shift+t layout toggle split
+bindsym $mod+f fullscreen
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+# resize mode
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    bindsym $mod+$left resize shrink width 10px
+    bindsym $mod+$down resize grow height 10px
+    bindsym $mod+$up resize shrink height 10px
+    bindsym $mod+$right resize grow width 10px
+
+    # ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    bindsym $mod+Left resize shrink width 10px
+    bindsym $mod+Down resize grow height 10px
+    bindsym $mod+Up resize shrink height 10px
+    bindsym $mod+Right resize grow width 10px
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+	bindsym $mod+m mode "default"
+}
+bindsym $mod+m mode "resize"
+
+# layout modenn
+set $mode_layout splith (h) splitv (v) parent (p) stacking (s) tabbed (t)
+mode "$mode_layout" {
+	 bindsym h splith, mode "default"
+	 bindsym v splitv, mode "default"
+	 bindsym p focus parent, mode "default"
+	 bindsym s layout stacking
+	 bindsym t layout tabbed
+
+	 bindsym Return mode "default"
+     bindsym Escape mode "default"
+     bindsym BackSpace mode "default"
+	 bindsym $mod+h mode "default"
+}
+bindsym $mod+h mode "$mode_layout"
+
+# system mode
+set $mode_system Reload (r) Exit (e)
+mode "$mode_system" {
+	bindsym r reload
+	bindsym e exit
+    bindsym Escape mode "default"
+	bindsym $mod+q mode "default"
+}
+bindsym $mod+q mode "$mode_system"
+
+bar {
+  swaybar_command waybar
+}
+
+for_window [app_id="^launcher$"] floating enablell
+for_window [class="Emacs"] move to workspace 3
+
+exec xrdb -load ~/.Xresources
+exec mako >/tmp/mako.log 2>&1
