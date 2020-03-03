@@ -1,0 +1,7 @@
+[Unit]
+Description=TODO
+
+[Service]
+Type=oneshot
+ExecStart=/run/current-system/sw/bin/git -C %h/%i add *
+ExecStartPost=/run/current-system/sw/bin/git -C %h/%i commit -m Update

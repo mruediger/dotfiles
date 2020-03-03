@@ -1,0 +1,8 @@
+[Unit]
+Description=Pushs network config to gitlab
+Requires=network.target
+After=org-commit.service
+
+[Service]
+Type=oneshot
+ExecStart=/run/current-system/sw/bin/git -C %h/%i push origin master

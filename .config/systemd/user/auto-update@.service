@@ -1,0 +1,10 @@
+[Unit]
+Description=commit and push org files to git server
+AllowIsolate=yes
+Wants=auto-commit@%i.service auto-push@%i.service
+
+[Service]
+ExecStart=/run/current-system/sw/bin/true
+
+[Install]
+WantedBy=multi-user.target

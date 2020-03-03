@@ -1,0 +1,9 @@
+[Unit]
+Description=Triggers the service that push org files on change
+Documentation=man:systemd.path
+
+[Path]
+PathModified=%h/%i
+
+[Install]
+WantedBy=multi-user.target
