@@ -26,8 +26,7 @@ bindsym $mod+Shift+$left  move left
 bindsym $mod+Shift+$right move right
 
 # multi monitor
-bindsym $mod+Shift+g move workspace to output up
-bindsym $mod+Shift+r move workspace to output down
+bindsym $mod+o move workspace to output up
 
 # layout stuff
 bindsym $mod+t layout toggle tabbed split
