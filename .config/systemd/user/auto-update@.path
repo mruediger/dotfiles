@@ -3,7 +3,7 @@ Description=Triggers the service that push org files on change
 Documentation=man:systemd.path
 
 [Path]
-PathModified=%h/%i
+PathModified=%h/%I
 
 [Install]
 WantedBy=multi-user.target

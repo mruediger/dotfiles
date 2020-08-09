@@ -1,7 +1,9 @@
 [Unit]
-Description=TODO
+Description=Commit files in %h/%I
+Conflicts=auto-update@%i.service
+Before=auto-push@%i.service auto-pull@%i.service
 
 [Service]
 Type=oneshot
-ExecStart=/run/current-system/sw/bin/git -C %h/%i add *
-ExecStartPost=/run/current-system/sw/bin/git -C %h/%i commit -m Update
+ExecStart=/run/current-system/sw/bin/git -C %h/%I add *
+ExecStartPost=/run/current-system/sw/bin/git -C %h/%I commit -m Update

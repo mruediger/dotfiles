@@ -1,7 +1,8 @@
 [Unit]
 Description=commit and push org files to git server
 AllowIsolate=yes
-Wants=auto-commit@%i.service auto-push@%i.service
+Wants=auto-commit@%i.service auto-pull@%i.service auto-push@%i.service
+Before=auto-commit@%i.service auto-pull@%i.service auto-push@%i.service
 
 [Service]
 ExecStart=/run/current-system/sw/bin/true
