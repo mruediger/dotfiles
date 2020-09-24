@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+CREDENTIALS=`pass allianz/sslvpn`
+
+username=$(echo $CREDENTIALS | sed -ne 's/.*username: \([^ ]*\).*/\1/p')
+url=$(echo $CREDENTIALS | sed -ne 's/.*url: \([^ ]*\).*/\1/p')
+
+sudo openconnect  --proto=nc --user=$username $url
