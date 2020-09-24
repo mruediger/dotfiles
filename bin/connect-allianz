@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 declare `pass allianz/sslvpn`
-echo sudo openconnect  --proto=nc --user=$username $url
+sudo openconnect  --proto=nc --user=$username $url
