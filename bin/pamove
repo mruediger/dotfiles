@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+case $1 in
+    nuforce)
+        id=$(pactl list short sinks | grep NuForce | cut -f1)
+        pactl list short sink-inputs | while read -a line ; do
+            pactl move-sink-input ${line[0]} ${id};
+        done
+        ;;
+    alsa)
+        id=$(pactl list short sinks | grep module-alsa-card.c | cut -f1)
+        pactl list short sink-inputs | while read -a line ; do
+            pactl move-sink-input ${line[0]} ${id};
+        done
+        ;;
+    windows)
+        IP=$2
+        pactl load-module module-tunnel-sink-new server=$IP
+        id=$(pactl list short sinks | grep tunnel-sink-new.$IP[[:space:]] | cut -f1)
+        pactl list short sink-inputs | while read -a line ; do
+            pactl move-sink-input ${line[0]} ${id};
+        done
+        ;;
+    *)
+        echo foo
+        ;;
+esac
