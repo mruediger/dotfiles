@@ -5,51 +5,29 @@ scroll_on_output    = false
 scroll_on_keystroke = true
 
 [colors]
-# Base16 Eighties
-# Author: Chris Kempson (http://chriskempson.com)
+foreground = #657b83
+foreground_bold = #073642
+#foreground_dim = #888888
+background = #fdf6e3
+cursor = #586e75
 
-foreground          = #d3d0c8
-foreground_bold     = #e8e6df
-cursor              = #e8e6df
-cursor_foreground   = #2d2d2d
-background          = rgba(45, 45, 45)
+# if unset, will reverse foreground and background
+highlight = #839496
 
-# 16 color space
-
-# Black, Gray, Silver, White
-color0  = #2d2d2d
-color8  = #747369
-color7  = #d3d0c8
-color15 = #f2f0ec
-
-# Red
-color1  = #f2777a
-color9  = #f2777a
-
-# Green
-color2  = #99cc99
-color10 = #99cc99
-
-# Yellow
-color3  = #ffcc66
-color11 = #ffcc66
-
-# Blue
-color4  = #6699cc
-color12 = #6699cc
-
-# Purple
-color5  = #cc99cc
-color13 = #cc99cc
-
-# Teal
-color6  = #66cccc
-color14 = #66cccc
-
-# Extra colors
-color16 = #f99157
-color17 = #d27b53
-color18 = #393939
-color19 = #515151
-color20 = #a09f93
-color21 = #e8e6df
+# colors from color0 to color254 can be set
+color0 = #073642
+color1 = #dc322f
+color2 = #859900
+color3 = #b58900
+color4 = #268bd2
+color5 = #d33682
+color6 = #2aa198
+color7 = #eee8d5
+color8 = #002b36
+color9 = #cb4b16
+color10 = #586e75
+color11 = #657b83
+color12 = #839496
+color13 = #6c71c4
+color14 = #93a1a1
+color15 = #fdf6e3
