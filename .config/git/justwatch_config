@@ -1,0 +1,5 @@
+[user]
+	name = Mathias Rüdiger
+	email = mathias.ruediger@justwatch.com
+[url "ssh://git@gitlab.justwatch.com"]
+	insteadOf = https://jus.tw.cx

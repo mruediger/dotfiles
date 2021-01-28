@@ -12,3 +12,7 @@
 [credential]
 	helper = !aws --profile saml codecommit credential-helper $@
 	UseHttpPath = true
+
+[includeIf "gitdir:~/src/justwatch/"]
+    path = justwatch_config
+
