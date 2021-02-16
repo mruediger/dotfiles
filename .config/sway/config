@@ -17,7 +17,7 @@ set $menu 	alacritty --class='launcher' --title='Application Launcher' --command
 set $pass   alacritty --class launcher --command sh -c 'pass_path | fzf --color=bw | xargs swaymsg pass show -c'
 
 ### Output configuration
-output * bg ~/.config/sway/butterfly-2.jpg stretch
+output * bg ~/.config/sway/the-whale.png stretch
 
 ### Input configuration
 input * {
