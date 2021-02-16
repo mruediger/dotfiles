@@ -163,13 +163,11 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # layout modenn
-set $mode_layout splith (h) splitv (v) parent (p) stacking (s) tabbed (t)
+set $mode_layout splith (h) splitv (v) parent (p)
 mode "$mode_layout" {
 	 bindsym h splith, mode "default"
 	 bindsym v splitv, mode "default"
 	 bindsym p focus parent, mode "default"
-	 bindsym s layout stacking
-	 bindsym t layout tabbed
 
 	 bindsym Return mode "default"
      bindsym Escape mode "default"
