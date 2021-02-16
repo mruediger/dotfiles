@@ -66,7 +66,7 @@ bindsym XF86MonBrightnessUp   exec brightnessctl s 1%+
 bindsym XF86TouchpadToggle 	  nop
 bindsym XF86WLAN 			  nop
 
-bindsym $mod+l exec --no-startup-id swaylock -i ~/src/nixos/nixos-config/templates/w95lock.png
+bindsym $mod+l exec --no-startup-id swaylock -c 000000
 
 # change focus
 bindsym $mod+$down  focus down
