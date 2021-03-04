@@ -4,12 +4,11 @@
 	"height": 20,
 	"modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": [
-        "pulseaudio", "network", "clock", "tray"
-    ],
+    "modules-right": [ "network#eno1", "network#wg0", "network#tun0", "clock", "tray" ],
     "sway/workspaces": {
-        "disable-scroll": true,
+        "disable-scroll": false,
         "all-outputs": false,
+        "numeric-first": true,
         "format": "{name}"
     },
     "sway/mode": {
@@ -40,10 +39,19 @@
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
-    "network": {
-        // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": " ({signalStrength}%) ",
-        "format-ethernet": " {ifname}: {ipaddr}/{cidr} ",
+    "network#eno1": {
+        "interface": "eno1",
+        "format-ethernet": "{ifname}:{ipaddr}/{cidr}",
+        "format-disconnected": "Disconnected"
+    },
+    "network#wg0": {
+        "interface": "wg0",
+        "format-ethernet": "{ifname}:{ipaddr}/{cidr}",
+        "format-disconnected": "Disconnected"
+    },
+    "network#tun0": {
+        "interface": "tun0",
+        "format-ethernet": "{ifname}:{ipaddr}/{cidr}",
         "format-disconnected": "Disconnected"
     }
 }
