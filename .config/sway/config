@@ -191,7 +191,6 @@ bar {
 }
 
 for_window [app_id="^launcher$"] focus, floating enable
-for_window [class="Emacs"] move to workspace 3
 
 for_window [class="^Steam$"] floating enable, move to workspace "Games"
 
