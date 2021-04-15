@@ -190,11 +190,12 @@ bar {
   swaybar_command waybar
 }
 
+# swaymsg  -t get_tree
+
 for_window [app_id="^launcher$"] focus, floating enable
-
 for_window [class="^Steam$"] floating enable, move to workspace "Games"
-
-
+for_window [title="Firefox — Sharing Indicator"] kill
+for_window [class="^zoom$"] move to workspace "Zoom"
 
 exec xrdb -load ~/.Xresources
 exec mako >/tmp/mako.log 2>&1
