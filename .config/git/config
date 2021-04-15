@@ -16,3 +16,5 @@
 [includeIf "gitdir:~/src/justwatch/"]
     path = justwatch_config
 
+[pull]
+	rebase = true
