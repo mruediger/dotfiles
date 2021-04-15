@@ -38,6 +38,16 @@ gaps 					inner 4
 smart_gaps				on
 smart_borders			on
 
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Adwaita'
+    gsettings set $gnome-schema icon-theme 'Adwaita'
+    gsettings set $gnome-schema cursor-theme 'Adwaita'
+    gsettings set $gnome-schema cursor-theme-size 48
+    gsettings set $gnome-schema font-name 'Sans 12'
+}
+
+
 ### Keybindings
 
 # programs
