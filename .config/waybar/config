@@ -4,7 +4,7 @@
 	"height": 20,
 	"modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": [ "network#eno1", "network#wg0", "network#tun0", "clock", "tray" ],
+    "modules-right": [ "network#wifi", "network#wg0", "network#tun0", "battery", "clock", "tray" ],
     "sway/workspaces": {
         "disable-scroll": false,
         "all-outputs": false,
@@ -34,13 +34,15 @@
             "warning": 30,
             "critical": 5
         },
-        "format": "{capacity}% {icon}",
+        "format": "bat: {capacity}%",
+        // "format": "{capacity}% {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
-    "network#eno1": {
-        "interface": "eno1",
+    "network#wifi": {
+        "interface": "wlp0s20f3",
+        "format-wifi": " wifi:{ipaddr}/ ({signalStrength}%) ",
         "format-ethernet": "{ifname}:{ipaddr}/{cidr}",
         "format-disconnected": "Disconnected"
     },
